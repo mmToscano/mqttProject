@@ -94,7 +94,6 @@ public class ClientGUI {
 
         messageInputArea.setText("");
 
-
     }
 
     private void instantiateClientGUIInterface(){

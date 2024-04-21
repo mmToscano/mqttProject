@@ -1,13 +1,17 @@
 import GUI.ClientGUI;
+import GUI.TransmissorAnalystGUI;
 import publishers.Transmissor;
 
 public class Program {
 
     public static void main(String[] args) {
-        String topic = "aula/exemplo";
-        Transmissor transmissor = new Transmissor(topic);
-        ClientGUI client = new ClientGUI(topic);
-        ClientGUI client2 = new ClientGUI(topic);
+        String transmissorTopic = "projeto/transmissor";
+        String clientsTopic = "projeto/clientes";
+
+        TransmissorAnalystGUI analyst = new TransmissorAnalystGUI(transmissorTopic, clientsTopic);
+        Transmissor transmissor = new Transmissor(transmissorTopic);
+        ClientGUI client = new ClientGUI(clientsTopic);
+        ClientGUI client2 = new ClientGUI(clientsTopic);
         transmissor.startTransmitting(); //última coisa que faz
     }
 }

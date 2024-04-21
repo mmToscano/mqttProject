@@ -45,17 +45,15 @@ public class Transmissor {
             while (true) {
                 // Generate random Integer data
                 int data = (int) (Math.random() * 100);
-                String dataString ="--" + String.valueOf(data) + "--";
+                String dataString =String.valueOf(data);
 
-                if(data >= 70){
-                    // Create an MQTT message with the Integer data
-                    MqttMessage message = new MqttMessage();
-                    message.setPayload((dataString).getBytes());
-                    message.setQos(qos);
+                // Create an MQTT message with the Integer data
+                MqttMessage message = new MqttMessage();
+                message.setPayload((dataString).getBytes());
+                message.setQos(qos);
 
-                    // Publish the message to the topic
-                    client.publish(topic, message);
-                }
+                // Publish the message to the topic
+                client.publish(topic, message);
 
                 // Wait for one second before sending the next message
                 Thread.sleep(1000);
